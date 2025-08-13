@@ -1,0 +1,214 @@
+"use client";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+const team = [
+  {
+    name: "Krishna Tamang",
+    role: "Founder & Program Executor",
+    responsibilities:
+      "Lead the vision, oversee programs, and ensure smooth execution of all planned activities.",
+    image: "/images/team/krishna.jpg",
+  },
+    {
+    name: "Jit Tamang",
+    role: "Coordinator & Advisor",
+    responsibilities:
+      "Coordinate schedules, logistics, and provide strategic advice.",
+    image: "/images/team/jit.jpg",
+  },
+  {
+    name: "Bimal Gurung",
+    role: "Camera, Editing & Advising",
+    responsibilities:
+      "Capture high-quality event footage, edit videos, and provide creative guidance.",
+    image: "/images/team/bimal.jpg",
+  },
+    {
+    name: "Visek Parajuli",
+    role: "Digital Marketing",
+    responsibilities:
+      "Promote events online, manage social media reach and engagement.",
+    image: "/images/team/visek.jpg",
+  },
+  {
+    name: "Prabhat Thapa",
+    role: "IT Support & Social Media",
+    responsibilities:
+      "Develop and maintain the website, assist in social media content creation.",
+    image: "/images/team/prabhat.jpg",
+  },
+    {
+    name: "Sujan Gurung",
+    role: "Reel Creator & MC (Bhadra 6)",
+    responsibilities:
+      "Create engaging reels for social media and host the Bhadra 6 event.",
+    image: "/images/team/sujan.jpg",
+  },
+  {
+    name: "Deepak Bastola",
+    role: "Advisor",
+    responsibilities:
+      "Provide strategic advice and event improvement suggestions.",
+    image: "/images/team/deepak.jpg",
+  },
+  {
+    name: "Prajwal Gurung",
+    role: "Mentor",
+    responsibilities:
+      "Guide and motivate trainees for competitions and training.",
+    image: "/images/team/prajwal.jpg",
+  },
+];
+
+const coreTeam = [
+  {
+    name: "Coach 1",
+    role: "Training Expert",
+    responsibilities:
+      "Guide physical, mental, and aptitude development.",
+    image: "/images/core/coach1.jpg",
+  },
+  {
+    name: "Coach 2",
+    role: "Training Expert",
+    responsibilities:
+      "Specialize in endurance and agility programs.",
+    image: "/images/core/coach2.jpg",
+  },
+  {
+    name: "Coach 3",
+    role: "Training Expert",
+    responsibilities:
+      "Oversee obstacle course training and stamina building.",
+    image: "/images/core/coach3.jpg",
+  },
+  {
+    name: "Coach 4",
+    role: "Training Expert",
+    responsibilities:
+      "Focus on strength and tactical drills.",
+    image: "/images/core/coach4.jpg",
+  },
+  {
+    name: "Cook Sister",
+    role: "Kitchen & Nutrition",
+    responsibilities:
+      "Prepare healthy and nutritious meals for trainees.",
+    image: "/images/core/cook.jpg",
+  },
+];
+
+export default function OurTeamPage() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const section = document.getElementById("team-section");
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          setVisible(true);
+        }
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <main className="bg-gray-50">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute -top-20 -left-20 h-80 w-80 rounded-full bg-emerald-200 blur-3xl opacity-40" />
+        <div className="absolute -bottom-16 -right-16 h-96 w-96 rounded-full bg-lime-200 blur-3xl opacity-40" />
+      </div>
+
+      {/* Founder Message */}
+      <section className="py-20 text-center">
+        <h1 className="text-4xl font-bold text-emerald-700">Our Team</h1>
+        <p className="mt-4 max-w-3xl mx-auto text-slate-600">
+          Meet the dedicated individuals behind the Mighty Gurkha Training Center — 
+          united by passion, discipline, and commitment to excellence.
+        </p>
+      </section>
+
+      <section className="py-12 bg-white shadow-inner">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="relative w-28 h-28 mx-auto mb-6 rounded-full overflow-hidden border-4 border-emerald-500">
+            <Image
+              src="/images/team/krishna.jpg"
+              alt="Krishna Tamang"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <h2 className="text-2xl font-bold text-emerald-700">Message from the Founder</h2>
+          <p className="mt-4 text-slate-600">
+            At Mighty Gurkha Training Center, our mission is not only to train candidates for the British and Singapore Gurkha selections, 
+            but also to instill in them the discipline, resilience, and leadership needed to succeed in life.  
+            Every program is designed to challenge limits, strengthen character, and inspire excellence.
+          </p>
+        </div>
+      </section>
+
+      {/* Team Members */}
+      <section id="team-section" className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {team.map((member, i) => (
+              <div
+                key={member.name}
+                className={`rounded-xl bg-white p-6 shadow-md border border-slate-200 transition-all duration-700 ease-out transform ${
+                  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
+                style={{ transitionDelay: `${i * 120}ms` }}
+              >
+                <div className="relative w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-emerald-500">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-emerald-700">{member.name}</h3>
+                <p className="text-sm text-slate-500">{member.role}</p>
+                <p className="mt-3 text-sm text-slate-600">{member.responsibilities}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Team with Photos */}
+      <section className="py-16 bg-emerald-50">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-emerald-700">Our Core Support</h2>
+          <p className="mt-2 text-slate-600">The backbone of our daily operations and training quality.</p>
+          <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {coreTeam.map((member, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-lg p-6 shadow border border-slate-200"
+              >
+                <div className="relative w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-emerald-500">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="mt-4 font-semibold text-lg text-emerald-700">{member.name}</h3>
+                <p className="text-sm text-slate-500">{member.role}</p>
+                <p className="mt-2 text-sm text-slate-600">{member.responsibilities}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
