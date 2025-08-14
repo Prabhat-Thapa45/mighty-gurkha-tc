@@ -118,24 +118,26 @@ export default function OurTeamPage() {
   }, []);
 
   return (
-    <main className="bg-gray-50">
+    // **FIX APPLIED HERE**: Added `relative` and `overflow-x-hidden`
+    <main className="relative bg-gray-50 overflow-x-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-20 -left-20 h-80 w-80 rounded-full bg-emerald-200 blur-3xl opacity-40" />
         <div className="absolute -bottom-16 -right-16 h-96 w-96 rounded-full bg-lime-200 blur-3xl opacity-40" />
       </div>
 
-      {/* Founder Message */}
+      {/* Header */}
       <section className="py-20 text-center">
         <h1 className="text-4xl font-bold text-emerald-700">Our Team</h1>
         <p className="mt-4 max-w-3xl mx-auto text-slate-600">
-          Meet the dedicated individuals behind the Mighty Gurkha Training Center — 
+          Meet the dedicated individuals behind the Mighty Gurkha Training Center —
           united by passion, discipline, and commitment to excellence.
         </p>
       </section>
 
+      {/* Founder Message */}
       <section className="py-12 bg-white shadow-inner">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto px-4 text-center">
           <div className="relative w-28 h-28 mx-auto mb-6 rounded-full overflow-hidden border-4 border-emerald-500">
             <Image
               src="/images/team/krishna.jpg"
@@ -145,9 +147,10 @@ export default function OurTeamPage() {
             />
           </div>
           <h2 className="text-2xl font-bold text-emerald-700">Message from the Founder</h2>
-          <p className="mt-4 text-slate-600">
-            At Mighty Gurkha Training Center, our mission is not only to train candidates for the British and Singapore Gurkha selections, 
-            but also to instill in them the discipline, resilience, and leadership needed to succeed in life.  
+          {/* Tweak 1: Added max-width for better readability on large screens */}
+          <p className="mt-4 max-w-3xl mx-auto text-slate-600">
+            At Mighty Gurkha Training Center, our mission is not only to train candidates for the British and Singapore Gurkha selections,
+            but also to instill in them the discipline, resilience, and leadership needed to succeed in life.
             Every program is designed to challenge limits, strengthen character, and inspire excellence.
           </p>
         </div>
@@ -156,11 +159,11 @@ export default function OurTeamPage() {
       {/* Team Members */}
       <section id="team-section" className="py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {team.map((member, i) => (
               <div
                 key={member.name}
-                className={`rounded-xl bg-white p-6 shadow-md border border-slate-200 transition-all duration-700 ease-out transform ${
+                className={`rounded-xl bg-white p-6 text-center shadow-md border border-slate-200 transition-all duration-700 ease-out transform ${
                   visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: `${i * 120}ms` }}
@@ -184,16 +187,17 @@ export default function OurTeamPage() {
 
       {/* Core Team with Photos */}
       <section className="py-16 bg-emerald-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-emerald-700">Our Core Support</h2>
           <p className="mt-2 text-slate-600">The backbone of our daily operations and training quality.</p>
-          <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {coreTeam.map((member, i) => (
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+            {coreTeam.map((member) => (
+              // Tweak 2: Using member.name for the key is slightly better practice
               <div
-                key={i}
-                className="bg-white rounded-lg p-6 shadow border border-slate-200"
+                key={member.name}
+                className="bg-white rounded-lg p-4 sm:p-6 text-center shadow border border-slate-200"
               >
-                <div className="relative w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-emerald-500">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-2 border-emerald-500">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -201,9 +205,8 @@ export default function OurTeamPage() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="mt-4 font-semibold text-lg text-emerald-700">{member.name}</h3>
-                <p className="text-sm text-slate-500">{member.role}</p>
-                <p className="mt-2 text-sm text-slate-600">{member.responsibilities}</p>
+                <h3 className="mt-4 font-semibold text-base sm:text-lg text-emerald-700">{member.name}</h3>
+                <p className="text-xs sm:text-sm text-slate-500">{member.role}</p>
               </div>
             ))}
           </div>
