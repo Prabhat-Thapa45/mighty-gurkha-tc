@@ -19,17 +19,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const router = useRouter(); // Initialize the router
 
-  const handleClick = (item: { href: string; label: string; external: boolean }) => {
-    setOpen(false); // Close mobile menu
-
-    if (!item.external) {
-      // For single-page links, navigate to the home page with the hash
-      router.push(`/${item.href}`);
-    } else {
-      // For multi-page links, navigate directly
-      router.push(item.href);
-    }
-  };
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur bg-white/70 border-b border-slate-200">

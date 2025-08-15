@@ -47,7 +47,7 @@ const ReviewText = ({ text }: ReviewTextProps) => {
   return (
     <div className="text-slate-700 italic text-left">
       <p ref={textRef} className={!isExpanded ? "line-clamp-3" : ""}>
-        "{text}"
+        &quot;{text}&quot;
       </p>
       {showButton && (
         <button
