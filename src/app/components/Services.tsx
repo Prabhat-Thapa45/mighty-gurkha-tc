@@ -8,7 +8,7 @@ const servicesData = [
   {
     title: "Selection Prep",
     desc: "Focused training for British Gurkha Army and Singapore GC standards.",
-    points: ["Pull ups & push-ups", "Carry bags & weights", "Timed runs & assessments"],
+    points: ["Pull ups & push-ups", "Carry bags & weights", "Timed runs & assessments", "Doko Carry"],
     icon: <svg viewBox="0 0 24 24" className="h-6 w-6"><path fill="currentColor" d="M5 12h14v2H5zM5 8h14v2H5zM5 16h14v2H5z" /></svg>,
   },
   {
@@ -22,6 +22,12 @@ const servicesData = [
     desc: "Verbal, numerical, situational judgment and interview practice.",
     points: ["Mock interviews", "Reasoning drills", "Communication skills"],
     icon: <svg viewBox="0 0 24 24" className="h-6 w-6"><path fill="currentColor" d="M12 12a5 5 0 110-10 5 5 0 010 10zM2 22a10 10 0 0120 0H2z" /></svg>,
+  },
+  {
+    title: "Personality Development",
+    desc: "Holistic training to build confidence, discipline, and leadership skills.",
+    points: ["Leadership training", "Public speaking", "Confidence building"],
+    icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
   },
   {
     title: "Document Verification",

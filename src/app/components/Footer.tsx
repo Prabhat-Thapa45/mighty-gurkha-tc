@@ -31,8 +31,8 @@ export default function Footer() {
             <a href="tel:+9779815143272" className="text-slate-600 block hover:text-emerald-700 hover:underline">
             +977 9815143272
           </a>
-            <a href="mailto:mightygurkha@gmail.com" className="text-slate-600 hover:text-emerald-700 hover:underline">
-          mightygurkha@gmail.com
+            <a href="mailto:mightygurkha618@gmail.com" className="text-slate-600 hover:text-emerald-700 hover:underline">
+          mightygurkha618@gmail.com
         </a>
           </p>
         </div>

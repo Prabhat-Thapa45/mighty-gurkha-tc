@@ -19,7 +19,7 @@ export default function Hero() {
             Start your future at <span className="text-emerald-700">Mighty Gurkha</span>
           </h1>
           <p className="mt-4 text-lg text-slate-700">
-            Elite coaching to prepare young individuals for the rigorous standards of the British Gurkha Army and Singapore Gurkha Contingent selections—fitness, discipline, aptitude, and mindset.
+            Elite coaching to prepare young individuals for the rigorous standards of the British Gurkha Army and Gurkha Contingent of Singapore Police Force selections—fitness, discipline, aptitude, and mindset.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -45,12 +45,12 @@ export default function Hero() {
 
         {/* Right Column: Image */}
         <div className="relative aspect-[4/3] w-full rounded-2xl bg-gradient-to-br from-emerald-600 to-lime-500 p-[2px] shadow-xl">
-          <div className="h-full w-full rounded-2xl bg-white p-4 flex items-center justify-center">
+          <div className="h-full w-full bg-emerald-500 p-4 flex items-center justify-center">
             <Image
               src="/training.jpg"
               alt="Gurkha training discipline and fitness"
               fill
-              className="object-cover rounded-xl"
+              className="object-cover shadow-xs lg:shadow-[-8px_5px_5px_0px_rgba(0,20,0,0.4)] rounded-lg"
               sizes="(min-width: 1024px) 40vw, 90vw"
               priority
             />

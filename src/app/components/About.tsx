@@ -3,7 +3,7 @@ import Image from "next/image";
 const stats = [
   { k: "100+", v: "Aspirants coached yearly" },
   { k: "4", v: "Expert trainers" },
-  { k: "10%+", v: "Selection success" },
+  { k: "15%+", v: "Selection success" },
   { k: "6 days", v: "Weekly training slots" },
 ];
 

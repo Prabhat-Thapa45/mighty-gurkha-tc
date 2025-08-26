@@ -6,24 +6,49 @@ import { useEffect, useState, useRef } from "react";
 // Review data is kept here
 const reviewsData = [
   {
-    name: "Rajesh Thapa",
-    text: "Mighty Gurkha transformed my fitness and discipline. I passed the British Gurkha selection with confidence. Mighty Gurkha Training Center is built by coaches who understand the standards, culture, and values expected of successful Gurkha candidates. We emphasize holistic preparation—fitness, discipline, character, and teamwork. Mighty Gurkha Training Center is built by coaches who understand the standards, culture, and values expected of successful Gurkha candidates. We emphasize holistic preparation—fitness, discipline, character, and teamwork.",
-    image: "/training.jpg",
+    name: "Binod Tamang",
+    text: "Joining the British Army felt like a distant dream, but MGTC made it possible. Their expert training, discipline, and constant encouragement helped me succeed. I’m now living my dream and if you’re serious about your future, MGTC is where your journey should begin.",
+    image: "/images/reviewer/binodTamang.jpg",
   },
   {
-    name: "Anil Gurung",
-    text: "The hostel facilities, training schedule, and mentorship were outstanding. The teamwork spirit is unmatched.",
-    image: "/training.jpg",
+    name: "Tejendra Budha Magar",
+    text: "Thank you mgtc for helping me reach my career by being my foundation even in tough situations. Mgtc is all about winning, teamwork and pushing beyond your limits. Jaya mgtc.",
+    image: "/images/reviewer/tejendra.jpeg",
   },
   {
-    name: "Sujan Lama",
-    text: "I struggled with endurance at first, but my performance max improved drastically in months. Highly recommend!",
-    image: "/training.jpg",
+    name: "Puskar Khand Thakuri",
+    text: "I want to express my heartfelt gratitude to the Mighty Gurkha Training Center. The guidance, discipline, and motivation I received during my training played a vital role in my success. Thank you for helping me turn my dream into reality.",
+    image: "/images/reviewer/puskarKhand.jpg",
   },
   {
-    name: "Sujan Lama",
-    text: "I struggled with endurance at first, but my performance max improved drastically in months. Highly recommend!",
-    image: "/training.jpg",
+    name: "Samir Tamang",
+    text: "At MGTC, I wasn't just trained—I was transformed. Every challenge there broke my limits and built my strength, shaping me into a warrior who carries the Gurkha’s legacy with pride.",
+    image: "/images/reviewer/samirTamang.jpeg",
+  },
+  {
+    name: "Abhinash Chand",
+    text: "My name is Abhinash Chand from the Gulmi district, and I'm currently serving in the British Army as a Gurkha soldier. It’s been almost 2 years in the military. Before that, I was in a village in Gulmi, a rural area. I came to Pokhara with a big dream, and I was able to achieve it with the help of my parents and the Mighty Gurkha Training Centre. I can proudly say that the Mighty Gurkha Training Centre is one of the best in all of Nepal. It was established just 3 years ago but has already helped produce many British Gurkhas and Singapore Police Force recruits. Hopefully, it will continue this outstanding training for young Gurkhas. It provides a great opportunity for those who want to join. The best quality training, excellent education classes, a proper diet, and a well-managed hostel are also available at this training center. I have never been upset about why I chose this one instead of another. Lastly, I want to say that if you really want to change your life from a civilian to a soldier, the Mighty Gurkha Training Centre is the best choice, and you won’t feel regret for your entire life.",
+    image: "/images/reviewer/avinashChand.jpg",
+  },
+   {
+    name: "Sahan Chandra Shah",
+    text: "I had the opportunity to train at Mighty Gurkha Training Center for 3 months in preparation for the final selection of the British Army. The training was intense, disciplined, and well-structured — exactly what is needed to prepare both physically and mentally. The instructors were highly experienced, supportive, and motivated us to push beyond our limits. I’m grateful for the guidance and environment provided here that helped me get selected for the British Army. Whether you’re aiming to join the British Army, Singapore Police Force, or improve your fitness and discipline, this is the right place",
+    image: "/images/reviewer/sahanShah.jpg",
+  },
+    {
+    name: "Mukesh Pun Magar",
+    text: "I would like to sincerely thank you so much mighty gurkha training center for helping me fulfill my dream. Without your excellent training, guidance, and support, this would not have been possible. A special thanks to Krisha Dai, Abinash Guruji and Sakcham Dai.",
+    image: "/images/reviewer/mukeshPun.jpg",
+  },
+  {
+    name: "Purna Bahadur Thapa",
+    text: "I would like to express my deepest gratitude to Krishna Dai and all the instructors for your outstanding guidance and support throughout my preparation for the Singapore Police Force. Your dedication, training, and unwavering encouragement have been instrumental in helping me grow both mentally and physically. Thank you for believing in us and equipping us with the knowledge and confidence needed to take on this journey with pride and purpose. We are truly thankful to be part of the center. Thank you, Krishna Dai.",
+    image: "/images/reviewer/purnaThapa.jpg",
+  },
+  {
+    name: "Suman Tamnag",
+    text: "Joining the British Army was my dream, and MGTC turned that dream into a plan. The disciplined drills, interview coaching, and continuous support helped me pass the selection process with confidence. I’m proud to wear the uniform and serve with honor.",
+    image: "/images/reviewer/sumanTamang.jpg",
   },
 ];
 

@@ -15,14 +15,14 @@ const team = [
     role: "Coordinator & Advisor",
     responsibilities:
       "Coordinate schedules, logistics, and provide strategic advice.",
-    image: "/images/team/jit.jpg",
+    image: "/images/team/jitTamang.jpeg",
   },
   {
     name: "Bimal Gurung",
     role: "Camera, Editing & Advising",
     responsibilities:
       "Capture high-quality event footage, edit videos, and provide creative guidance.",
-    image: "/images/team/bimal.jpg",
+    image: "/images/team/bimal.jpeg",
   },
     {
     name: "Visek Parajuli",
@@ -54,53 +54,46 @@ const team = [
   },
   {
     name: "Prajwal Gurung",
-    role: "Mentor",
+    role: "Legal Advisor",
     responsibilities:
-      "Guide and motivate trainees for competitions and training.",
+      "Provides legal avices to the orgnasation",
     image: "/images/team/prajwal.jpg",
   },
 ];
 
 const coreTeam = [
   {
-    name: "Coach 1",
-    role: "Training Expert",
+    name: "Khsitiz Rana Magar",
+    role: "Trainer",
     responsibilities:
       "Guide physical, mental, and aptitude development.",
-    image: "/images/core/coach1.jpg",
+    image: "/images/core-team/khsitizRana.jpeg",
   },
   {
-    name: "Coach 2",
-    role: "Training Expert",
+    name: "Amir Gurung",
+    role: "Trainer",
     responsibilities:
       "Specialize in endurance and agility programs.",
-    image: "/images/core/coach2.jpg",
+    image: "/images/core-team/amirGurung.jpeg",
   },
   {
-    name: "Coach 3",
-    role: "Training Expert",
+    name: "Dhan Bahadur Magar",
+    role: "Trainer",
     responsibilities:
       "Oversee obstacle course training and stamina building.",
-    image: "/images/core/coach3.jpg",
+    image: "/images/core-team/dhanBahadurMagar.jpeg",
   },
   {
-    name: "Coach 4",
-    role: "Training Expert",
-    responsibilities:
-      "Focus on strength and tactical drills.",
-    image: "/images/core/coach4.jpg",
-  },
-  {
-    name: "Cook Sister",
+    name: "Kanchhi Maya Tamang",
     role: "Kitchen & Nutrition",
     responsibilities:
       "Prepare healthy and nutritious meals for trainees.",
-    image: "/images/core/cook.jpg",
+    image: "/images/core-team/kanchhiMayaTamang.jpeg",
   },
 ];
 
 export default function OurTeamPage() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true)
 
   useEffect(() => {
     const onScroll = () => {
@@ -119,13 +112,12 @@ export default function OurTeamPage() {
 
   return (
     // **FIX APPLIED HERE**: Added `relative` and `overflow-x-hidden`
-    <main className="relative bg-gray-50 overflow-x-hidden">
+    <main className="relative bg-gray-50 ">
       {/* Gradient Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-20 -left-20 h-80 w-80 rounded-full bg-emerald-200 blur-3xl opacity-40" />
-        <div className="absolute -bottom-16 -right-16 h-96 w-96 rounded-full bg-lime-200 blur-3xl opacity-40" />
-      </div>
-
+      <div className="absolute inset-0 overflow-hidden -z-10">
+    <div className="absolute -top-20 -left-20 h-80 w-80 rounded-full bg-emerald-200 blur-3xl opacity-40" />
+    <div className="absolute -bottom-16 -right-16 h-96 w-96 rounded-full bg-lime-200 blur-3xl opacity-40" />
+  </div>
       {/* Header */}
       <section className="py-20 text-center">
         <h1 className="text-4xl font-bold text-emerald-700">Our Team</h1>
@@ -187,17 +179,17 @@ export default function OurTeamPage() {
 
       {/* Core Team with Photos */}
       <section className="py-16 bg-emerald-50">
-        <div className="max-w-5xl mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-emerald-700">Our Core Support</h2>
           <p className="mt-2 text-slate-600">The backbone of our daily operations and training quality.</p>
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+          <div className="mt-8 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {coreTeam.map((member) => (
               // Tweak 2: Using member.name for the key is slightly better practice
               <div
                 key={member.name}
                 className="bg-white rounded-lg p-4 sm:p-6 text-center shadow border border-slate-200"
               >
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-2 border-emerald-500">
+                <div className="relative w-22 h-22 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-2 border-emerald-500">
                   <Image
                     src={member.image}
                     alt={member.name}

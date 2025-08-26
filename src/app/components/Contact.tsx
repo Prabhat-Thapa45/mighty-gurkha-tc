@@ -8,7 +8,7 @@ const contactDetails = [
   {
     icon: <IoLocationOutline className="h-6 w-6 text-emerald-600 mt-1" />,
     title: "Office Address",
-    content: <p className="text-slate-600">Pokhara, Bagar-1, Kaski, Nepal</p>,
+    content: <p className="text-slate-600">Bagar, Pokhara-1, Nepal</p>,
   },
   {
     icon: <MdOutlineLocalPhone className="h-6 w-6 text-emerald-600 mt-1" />,
@@ -29,14 +29,14 @@ const contactDetails = [
     title: "Email Address",
     content: (
       <a href="mailto:mightygurkha@gmail.com" className="text-slate-600 hover:text-emerald-700 hover:underline">
-        mightygurkha@gmail.com
+        mightygurkha618@gmail.com
       </a>
     ),
   },
   {
     icon: <FaRegClock className="h-6 w-6 text-emerald-600 mt-1" />,
     title: "Office Hours",
-    content: <p className="text-slate-600">Sunday - Friday, 10:00 AM - 4:30 PM</p>,
+    content: <p className="text-slate-600">Sunday - Friday, 10:00 AM - 6:00 PM</p>,
   },
   // START: New "Follow Us" section
   {
@@ -92,6 +92,10 @@ export default function Contact() {
           <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <h3 className="text-xl font-semibold">Why Join Mighty Gurkha?</h3>
             <ul className="mt-4 space-y-3 text-slate-700">
+              <li className="flex items-start gap-2">
+                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-600 " />
+                Best success ratio all over Nepal
+              </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-600" />
                 Selection-focused programs built around real standards and timelines.

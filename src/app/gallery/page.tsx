@@ -1,12 +1,25 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import SocialLinks from "./socialLinks";
 
 const images = [
+  { src: "/images/gallery/IMG_0579-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_2408-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_3468-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_4476-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_4477-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_4691-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_6882-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_1916-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_7227-min.jpg", alt: "Training Drill" },
+    { src: "/images/gallery/IMG_7145-min.jpg", alt: "Training Drill" },
+      { src: "/images/gallery/IMG_7174-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_7658-min.jpg", alt: "Training Drill" },
+  { src: "/images/gallery/IMG_2384-min.jpg", alt: "Training Drill" },
   { src: "/images/gallery/drill.jpeg", alt: "Training Drill" },
   { src: "/images/gallery/fitness.jpg", alt: "Fitness Test" },
   { src: "/images/gallery/team.jpg", alt: "Team" },
-  { src: "/images/gallery/hostel.jpg", alt: "Hostel" },
   { src: "/images/gallery/british.jpg", alt: "Selection to BA" },
 ];
 
@@ -68,6 +81,8 @@ export default function GalleryPage() {
           </div>
         </div>
       )}
+
+      <SocialLinks />
     </main>
   );
 }
