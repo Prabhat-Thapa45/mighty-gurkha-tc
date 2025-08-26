@@ -33,22 +33,22 @@ const reviewsData = [
    {
     name: "Sahan Chandra Shah",
     text: "I had the opportunity to train at Mighty Gurkha Training Center for 3 months in preparation for the final selection of the British Army. The training was intense, disciplined, and well-structured — exactly what is needed to prepare both physically and mentally. The instructors were highly experienced, supportive, and motivated us to push beyond our limits. I’m grateful for the guidance and environment provided here that helped me get selected for the British Army. Whether you’re aiming to join the British Army, Singapore Police Force, or improve your fitness and discipline, this is the right place",
-    image: "/images/reviewer/sahanShah.jpg",
+    image: "/images/reviewer/sahanShah.JPG",
   },
     {
     name: "Mukesh Pun Magar",
     text: "I would like to sincerely thank you so much mighty gurkha training center for helping me fulfill my dream. Without your excellent training, guidance, and support, this would not have been possible. A special thanks to Krisha Dai, Abinash Guruji and Sakcham Dai.",
-    image: "/images/reviewer/mukeshPun.jpg",
+    image: "/images/reviewer/mukeshPun.JPG",
   },
   {
     name: "Purna Bahadur Thapa",
     text: "I would like to express my deepest gratitude to Krishna Dai and all the instructors for your outstanding guidance and support throughout my preparation for the Singapore Police Force. Your dedication, training, and unwavering encouragement have been instrumental in helping me grow both mentally and physically. Thank you for believing in us and equipping us with the knowledge and confidence needed to take on this journey with pride and purpose. We are truly thankful to be part of the center. Thank you, Krishna Dai.",
-    image: "/images/reviewer/purnaThapa.jpg",
+    image: "/images/reviewer/purnaThapa.JPG",
   },
   {
     name: "Suman Tamnag",
     text: "Joining the British Army was my dream, and MGTC turned that dream into a plan. The disciplined drills, interview coaching, and continuous support helped me pass the selection process with confidence. I’m proud to wear the uniform and serve with honor.",
-    image: "/images/reviewer/sumanTamang.jpg",
+    image: "/images/reviewer/sumanTamang.JPG",
   },
 ];
 
