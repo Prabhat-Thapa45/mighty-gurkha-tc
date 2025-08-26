@@ -67,14 +67,14 @@ const coreTeam = [
     role: "Trainer",
     responsibilities:
       "Guide physical, mental, and aptitude development.",
-    image: "/images/core-team/khsitizRana.jpeg",
+    image: "/images/core-team/khsitizRanaMagar.jpeg",
   },
   {
     name: "Amir Gurung",
     role: "Trainer",
     responsibilities:
       "Specialize in endurance and agility programs.",
-    image: "/images/core-team/amirGurung.jpeg",
+    image: "/images/core-team/amirGurung.jpg",
   },
   {
     name: "Dhan Bahadur Magar",
