@@ -4,65 +4,68 @@ import React, { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa6";
 
 interface WhatsAppButtonProps {
-  buttonText?: string; 
-  phoneNumber: string; 
+  buttonText?: string;
+  phoneNumber: string;
+  defaultMessage?: string;
 }
 
-const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
+export default function WhatsAppButton({
   buttonText = "Chat on WhatsApp",
   phoneNumber,
-}) => {
-  const [translateY, setTranslateY] = useState(-50); // Initially hidden
-  const [opacity, setOpacity] = useState(0); // Initially invisible
+  defaultMessage = "",
+}: WhatsAppButtonProps) {
+  const [show, setShow] = useState(false);
 
+  // slide-up + fade-in
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      if (scrollY > 90) {
-        setTranslateY(30); // Moves up smoothly
-        setOpacity(1); // Fully visible
-      } else {
-        setTranslateY(-50); // Moves down smoothly
-        setOpacity(0); // Fades out gradually
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setShow(window.scrollY > 90);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const userAgent = navigator.userAgent.toLowerCase();
-  const isMobile =
-    /android|iphone|ipod/i.test(userAgent) ||
-    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1); 
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  const whatsappUrl = isMobile
-    ? `https://api.whatsapp.com/send?phone=${phoneNumber}` 
-    : `https://web.whatsapp.com/send?phone=${phoneNumber}`;
+  const textParam = defaultMessage
+    ? `&text=${encodeURIComponent(defaultMessage)}`
+    : "";
+
+  const handleClick = () => {
+    if (isAndroid) {
+      window.location.href =
+        `intent://send?phone=${phoneNumber}${textParam}` +
+        `#Intent;scheme=smsto;package=com.whatsapp;end`;
+    } else if (isMobile) {
+      window.location.href = `whatsapp://send?phone=${phoneNumber}${textParam}`;
+    } else {
+      window.open(`https://web.whatsapp.com/send?phone=${phoneNumber}${textParam}`, "_blank");
+      return;
+    }
+
+    // fallback to wa.me web if app not installed
+    setTimeout(() => {
+      window.location.href = `https://wa.me/${phoneNumber}${textParam}`;
+    }, 500);
+  };
 
   return (
     <div
       style={{
         position: "fixed",
-        bottom: `${translateY}px`,
         right: "20px",
-        transition: "bottom 0.6s ease-in-out, opacity 0.6s ease-in-out", // Smooth transition for both movement & visibility
-        opacity,
-        pointerEvents: opacity > 0 ? "auto" : "none",
+        bottom: show ? "30px" : "-60px",
+        opacity: show ? 1 : 0,
+        transition: "bottom 0.6s, opacity 0.6s",
+        pointerEvents: show ? "auto" : "none",
       }}
     >
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="shadow-lg h-[50px] px-7 py-2 text-[15px] flex items-center rounded-lg text-white bg-green-600 hover:bg-green-700"
+      <button
+        onClick={handleClick}
+        className="flex items-center bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg shadow-lg"
       >
         <FaWhatsapp className="mr-2 text-2xl" />
         {buttonText}
-      </a>
+      </button>
     </div>
   );
-};
-
-export default WhatsAppButton;
+}
