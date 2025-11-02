@@ -19,7 +19,7 @@ const team = [
   },
   {
     name: "Bimal Gurung",
-    role: "Camera, Editing & Advising",
+    role: "Digital Media Specialist",
     responsibilities:
       "Capture high-quality event footage, edit videos, and provide creative guidance.",
     image: "/images/team/bimal.jpeg",
