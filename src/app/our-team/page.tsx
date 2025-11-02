@@ -40,7 +40,7 @@ const team = [
   },
     {
     name: "Sujan Gurung",
-    role: "Reel Creator & MC (Bhadra 6)",
+    role: "Reel Creator & MC",
     responsibilities:
       "Create engaging reels for social media and host the Bhadra 6 event.",
     image: "/images/team/sujan.jpg",
