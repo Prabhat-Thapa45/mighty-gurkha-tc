@@ -19,7 +19,7 @@ const team = [
   },
   {
     name: "Bimal Gurung",
-    role: "Camera, Editing & Advising",
+    role: "Digital Media Specialist",
     responsibilities:
       "Capture high-quality event footage, edit videos, and provide creative guidance.",
     image: "/images/team/bimal.jpeg",
@@ -40,7 +40,7 @@ const team = [
   },
     {
     name: "Sujan Gurung",
-    role: "Reel Creator & MC (Bhadra 6)",
+    role: "Reel Creator & MC",
     responsibilities:
       "Create engaging reels for social media and host the Bhadra 6 event.",
     image: "/images/team/sujan.jpg",
