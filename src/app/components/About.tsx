@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Shield, Target, Users, Medal, ArrowRight, CheckCircle } from "lucide-react";
+import { Shield, Target, Users, Medal, CheckCircle } from "lucide-react";
 
 const stats = [
   { k: "10+", v: "Annual Aspirants", icon: <Users className="h-5 w-5" /> },
@@ -65,7 +65,7 @@ export default function About() {
               </h2>
               
               <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-                Mighty Gurkha Training Center is a specialized academy for those aiming for the **British Gurkha Army** and **Singapore Police Force**. We don't just provide fitness; we instill the mindset, discipline, and tactical awareness required to stand out among thousands.
+                Mighty Gurkha Training Center is a specialized academy for those aiming for the **British Gurkha Army** and **Singapore Police Force**. We don&apos;t just provide fitness; we instill the mindset, discipline, and tactical awareness required to stand out among thousands.
               </p>
 
               <ul className="mt-8 space-y-3">

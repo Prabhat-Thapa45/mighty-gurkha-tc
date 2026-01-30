@@ -51,7 +51,7 @@ const reviewsData = [
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion} from "framer-motion";
 import { Quote, Star, ChevronDown, ChevronUp } from "lucide-react";
 
 const ReviewText = ({ text }: { text: string }) => {

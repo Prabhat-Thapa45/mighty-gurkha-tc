@@ -8,7 +8,6 @@ import {
   Phone, 
   Mail, 
   Droplets, 
-  UserCircle,
   ShieldAlert,
   ChevronRight
 } from "lucide-react";
