@@ -63,6 +63,13 @@ const team = [
 
 const coreTeam = [
   {
+    name: "Kushal Chandra Thapa",
+    role: "P.T.I.",
+    responsibilities:
+      "Make Trainig Plans and Monitor Daily Training.",
+    image: "/images/core-team/kushalChandraThapa.png",
+  },
+  {
     name: "Khsitiz Rana Magar",
     role: "Trainer",
     responsibilities:

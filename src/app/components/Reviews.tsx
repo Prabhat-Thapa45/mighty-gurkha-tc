@@ -1,8 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
-
 // Review data is kept here
 const reviewsData = [
   {
@@ -30,12 +27,12 @@ const reviewsData = [
     text: "My name is Abhinash Chand from the Gulmi district, and I'm currently serving in the British Army as a Gurkha soldier. It’s been almost 2 years in the military. Before that, I was in a village in Gulmi, a rural area. I came to Pokhara with a big dream, and I was able to achieve it with the help of my parents and the Mighty Gurkha Training Centre. I can proudly say that the Mighty Gurkha Training Centre is one of the best in all of Nepal. It was established just 3 years ago but has already helped produce many British Gurkhas and Singapore Police Force recruits. Hopefully, it will continue this outstanding training for young Gurkhas. It provides a great opportunity for those who want to join. The best quality training, excellent education classes, a proper diet, and a well-managed hostel are also available at this training center. I have never been upset about why I chose this one instead of another. Lastly, I want to say that if you really want to change your life from a civilian to a soldier, the Mighty Gurkha Training Centre is the best choice, and you won’t feel regret for your entire life.",
     image: "/images/reviewer/avinashChand.jpg",
   },
-   {
+  {
     name: "Sahan Chandra Shah",
     text: "I had the opportunity to train at Mighty Gurkha Training Center for 3 months in preparation for the final selection of the British Army. The training was intense, disciplined, and well-structured — exactly what is needed to prepare both physically and mentally. The instructors were highly experienced, supportive, and motivated us to push beyond our limits. I’m grateful for the guidance and environment provided here that helped me get selected for the British Army. Whether you’re aiming to join the British Army, Singapore Police Force, or improve your fitness and discipline, this is the right place",
     image: "/images/reviewer/sahanShah.JPG",
   },
-    {
+  {
     name: "Mukesh Pun Magar",
     text: "I would like to sincerely thank you so much mighty gurkha training center for helping me fulfill my dream. Without your excellent training, guidance, and support, this would not have been possible. A special thanks to Krisha Dai, Abinash Guruji and Sakcham Dai.",
     image: "/images/reviewer/mukeshPun.JPG",
@@ -52,82 +49,137 @@ const reviewsData = [
   },
 ];
 
-type ReviewTextProps = { text: string };
+import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { Quote, Star, ChevronDown, ChevronUp } from "lucide-react";
 
-// Component for handling truncated review text
-const ReviewText = ({ text }: ReviewTextProps) => {
+const ReviewText = ({ text }: { text: string }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [showButton, setShowButton] = useState(false);
+  const [canExpand, setCanExpand] = useState(false);
   const textRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    if (
-      textRef.current &&
-      textRef.current.scrollHeight > textRef.current.clientHeight
-    ) {
-      setShowButton(true);
+    if (textRef.current && textRef.current.scrollHeight > 72) {
+      // 72px approx 3 lines
+      setCanExpand(true);
     }
-  }, [text]); // Dependency on text ensures this runs if the prop changes
+  }, [text]);
 
   return (
-    <div className="text-slate-700 italic text-left">
-      <p ref={textRef} className={!isExpanded ? "line-clamp-3" : ""}>
+    <div className="relative">
+      <motion.p
+        ref={textRef}
+        initial={false}
+        animate={{ height: isExpanded ? "auto" : "72px" }}
+        className="text-slate-600 leading-relaxed text-sm overflow-hidden relative"
+      >
         &quot;{text}&quot;
-      </p>
-      {showButton && (
+        {!isExpanded && canExpand && (
+          <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-white to-transparent" />
+        )}
+      </motion.p>
+      {canExpand && (
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="font-semibold text-emerald-700 mt-1 cursor-pointer hover:underline focus:outline-none"
+          className="flex items-center gap-1 text-xs font-bold text-emerald-600 mt-2 uppercase tracking-tighter hover:text-emerald-700 transition-colors"
         >
-          {isExpanded ? "Read Less" : "Read More"}
+          {isExpanded ? (
+            <>
+              Read Less <ChevronUp size={14} />
+            </>
+          ) : (
+            <>
+              Read More <ChevronDown size={14} />
+            </>
+          )}
         </button>
       )}
     </div>
   );
 };
 
-// Main Reviews Component
 export default function Reviews() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const section = document.getElementById("reviews");
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          setIsVisible(true);
-          // Optional: remove listener after animation triggers to save performance
-          window.removeEventListener("scroll", onScroll);
-        }
-      }
-    };
-    window.addEventListener("scroll", onScroll);
-    onScroll(); // Check on initial load
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <section id="reviews" className="py-20 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl font-bold">Student Reviews</h2>
-        <p className="mt-3 text-slate-600">
-          Hear from those who&apos;ve walked the path before you.
-        </p>
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {reviewsData.map((review, i) => (
-            <div
-              key={`${review.name}-${i}`}
-              className={`rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-all duration-700 ease-out transform ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-              style={{ transitionDelay: `${i * 150}ms` }}
+    <section id="reviews" className="py-24 bg-slate-50 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-2 text-emerald-600 font-bold tracking-widest uppercase text-sm mb-3"
             >
-              <div className="flex justify-center mb-4">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-emerald-500">
+              <Star size={16} className="fill-emerald-600" />
+              Success Stories
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl sm:text-5xl font-black text-slate-900 leading-tight"
+            >
+              Trusted by Hundreds of{" "}
+              <span className="text-emerald-600">Future Gurkhas.</span>
+            </motion.h2>
+          </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-slate-500 max-w-xs italic border-l-2 border-emerald-500 pl-4"
+          >
+            &quot;Honest feedback from our recruits who are now serving in the
+            British Army and SPF.&quot;
+          </motion.p>
+        </div>
+
+        {/* Reviews Grid */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1 },
+            },
+          }}
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {reviewsData.map((review, i) => (
+            <motion.div
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { type: "spring", stiffness: 100 },
+                },
+              }}
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 relative group"
+            >
+              <Quote className="absolute top-6 right-8 text-slate-100 h-12 w-12 group-hover:text-emerald-50 transition-colors" />
+
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={14}
+                    className="fill-amber-400 text-amber-400"
+                  />
+                ))}
+              </div>
+
+              <ReviewText text={review.text} />
+
+              <div className="mt-8 flex items-center gap-4">
+                <div className="relative h-12 w-12 shrink-0 rounded-full overflow-hidden border-2 border-emerald-500 shadow-md">
                   <Image
                     src={review.image}
                     alt={review.name}
@@ -135,14 +187,18 @@ export default function Reviews() {
                     className="object-cover"
                   />
                 </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 leading-none">
+                    {review.name}
+                  </h4>
+                  <p className="text-[10px] uppercase tracking-wider font-bold text-emerald-600 mt-1">
+                    Successfully Selected
+                  </p>
+                </div>
               </div>
-              <ReviewText text={review.text} />
-              <div className="mt-4 font-semibold text-emerald-700">
-                — {review.name}
-              </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
