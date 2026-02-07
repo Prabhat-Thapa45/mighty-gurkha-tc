@@ -52,7 +52,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm font-semibold text-emerald-400 backdrop-blur-md"
             >
               <Activity size={16} className="animate-pulse" />
-              Admission Open for RI 2027 Batch
+              Admission Open for 2027 Batch
             </motion.div>
 
             <h1 className="mt-8 text-5xl sm:text-7xl font-black tracking-tighter text-white leading-[0.95]">
